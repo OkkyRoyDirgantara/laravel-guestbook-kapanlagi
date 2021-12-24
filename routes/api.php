@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KapanLagiAPIController;
+use App\Http\Controllers\Api\GuestBookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/provinces', [KapanLagiAPIController::class, 'getProvinces']);
 Route::get('/cities', [KapanLagiAPIController::class, 'getCities']);
+
+Route::resource('guestbook', GuestBookController::class)->only(['index', 'show', 'store']);
+
+
