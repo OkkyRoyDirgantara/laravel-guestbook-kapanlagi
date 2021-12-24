@@ -10,7 +10,8 @@ class GuestBookController extends Controller
 {
     public function index()
     {
-        $guestBooks = GuestBook::all();
+        //Descending order
+        $guestBooks = GuestBook::orderBy('id', 'desc')->get();
 
         return response()->json($guestBooks);
     }

@@ -23,6 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/provinces', [KapanLagiAPIController::class, 'getProvinces']);
 Route::get('/cities', [KapanLagiAPIController::class, 'getCities']);
 
-Route::resource('guestbook', GuestBookController::class)->only(['index', 'show', 'store']);
+Route::resource('guestbooks', GuestBookController::class)->only(['index', 'show', 'store']);
 
 
