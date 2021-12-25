@@ -25,4 +25,21 @@ class GuestBookController extends Controller
         $guestbook = GuestBook::find($id);
         return view('guestbook.show', ['guestbook' => $guestbook]);
     }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|max:255',
+        ]);
+
+        $guestbook = new GuestBook;
+        $guestbook->name = $request->name;
+        $guestbook->email = $request->email;
+        $guestbook->body = $request->body;
+        $guestbook->save();
+
+        return redirect('guestbook');
+    }
 }

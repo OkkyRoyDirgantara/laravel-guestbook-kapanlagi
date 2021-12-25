@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestBookController;
+use App\Http\Controllers\GuestBookFrontEndController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,8 @@ use App\Http\Controllers\GuestBookController;
 |
 */
 
-Route::resource('admin/guestbook', GuestBookController::class)->only(['index', 'store', 'destroy', 'show']);
+Route::resource('admin/guestbook', GuestBookController::class)->only(['index', 'store', 'destroy', 'show', 'edit']);
+Route::resource('guest', GuestBookFrontEndController::class)->only(['index', 'store']);
+Route::get('/', function () {
+    return redirect('guest');
+});

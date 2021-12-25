@@ -9,6 +9,8 @@
 </head>
 <body>
 <h1>List Guestbook</h1>
+{{--Create--}}
+<a href="{{route('guestbook.store')}}">Create</a>
 <table border="1">
     <tr>
         <th>ID</th>
