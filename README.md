@@ -8,8 +8,8 @@ with features :
 ### Admin Panel
 - Login page
 ```
-email : admin@mail.com
-password : admin
+email : "You Can Create Your Email at Form Register"
+password : "You Can Create Your Password at Form Register"
 ```
 - Logout 
 - List table Guestbook 
@@ -32,3 +32,5 @@ Show Guestbook form with input :
 - `php artisan key:generate`
 - `php artisan migrate`
 - `127.0.0.0:8000`
+- "You can see your guestbook at [http://localhost:8000/guest](http://127.0.0.1:8000/admin/guestbook)"
+- "You can see your admin panel at [http://127.0.0.1:8000/admin/guestbook](http://127.0.0.1:8000/admin/guestbook)"
