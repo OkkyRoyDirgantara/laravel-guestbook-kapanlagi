@@ -28,5 +28,7 @@ Show Guestbook form with input :
 ## How to use
 - Clone this project to your local machine
 - ``` Composer install```
+- `clone .env.example .env`
+- `php artisan key:generate`
 - `php artisan migrate`
 - `127.0.0.0:8000`
