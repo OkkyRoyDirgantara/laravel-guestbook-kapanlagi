@@ -15,8 +15,18 @@ use App\Http\Controllers\GuestBookFrontEndController;
 |
 */
 
-Route::resource('admin/guestbook', GuestBookController::class)->only(['index', 'store', 'destroy', 'show', 'edit']);
 Route::resource('guest', GuestBookFrontEndController::class)->only(['index', 'store']);
 Route::get('/', function () {
     return redirect('guest');
+})->name('home');
+
+Route::get("/login", function () {return redirect('guest');})->name('login');
+
+Auth::routes();
+Route::middleware('auth')->group(function () {
+    Route::resource('admin/guestbook', GuestBookController::class)->only(['index', 'store', 'destroy', 'show', 'edit', 'create']);
 });
+
+Route::get('/home', function (){
+    return redirect('admin/guestbook');
+})->name('home');
