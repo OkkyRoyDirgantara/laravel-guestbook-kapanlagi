@@ -25,3 +25,8 @@ Show Guestbook form with input :
 - Province 
 - City
 
+## How to use
+- Clone this project to your local machine
+- ``` Composer install```
+- `php artisan migrate`
+- `127.0.0.0:8000`
