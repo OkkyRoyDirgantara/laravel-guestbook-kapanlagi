@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use App\Models\GuestBook;
 
@@ -9,9 +11,10 @@ class GuestBookFrontEndController extends Controller
 {
     public function index()
     {
+        app("\App\Http\Controllers\ProvinceController")->store();
         //json to array
-        $provinces = json_decode(file_get_contents("https://d.kapanlaginetwork.com/banner/test/province.json"), true);
-        $cities = json_decode(file_get_contents('https://d.kapanlaginetwork.com/banner/test/city.json'), true);
+        $provinces = Province::all();
+        $cities = City::all();
 
 
         $guestbooks = GuestBook::orderBy('id', 'desc')->paginate(10);

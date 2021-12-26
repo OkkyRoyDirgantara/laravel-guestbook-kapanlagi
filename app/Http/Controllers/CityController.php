@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
-use App\Models\Province;
 use Illuminate\Http\Request;
 
-class ProvinceController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class ProvinceController extends Controller
      */
     public function index()
     {
-        // return to api
-        return Province::all();
+        //
     }
 
     /**
@@ -35,20 +33,11 @@ class ProvinceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        if (Province::all()->count() == 0) {
-            $provinsi = new Province;
-            $provinces = json_decode(file_get_contents("https://d.kapanlaginetwork.com/banner/test/province.json"), true);
-            while (count($provinces) > 0) {
-                $provinsi->insert($provinces);
-                $provinces = array_slice($provinces, 100);
-            }
-        }
-
         if (City::all()->count() == 0) {
-            $city = new City;
-            $cities = json_decode(file_get_contents("https://d.kapanlaginetwork.com/banner/test/city.json"), true);
+            $city = new Province;
+            $cities = json_decode(file_get_contents("https://d.kapanlaginetwork.com/banner/test/province.json"), true);
             while (count($cities) > 0) {
                 $city->insert($cities);
                 $cities = array_slice($cities, 100);
@@ -59,10 +48,10 @@ class ProvinceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Province  $province
+     * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function show(Province $province)
+    public function show(City $city)
     {
         //
     }
@@ -70,10 +59,10 @@ class ProvinceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Province  $province
+     * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit(Province $province)
+    public function edit(City $city)
     {
         //
     }
@@ -82,10 +71,10 @@ class ProvinceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Province  $province
+     * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Province $province)
+    public function update(Request $request, City $city)
     {
         //
     }
@@ -93,10 +82,10 @@ class ProvinceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Province  $province
+     * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Province $province)
+    public function destroy(City $city)
     {
         //
     }

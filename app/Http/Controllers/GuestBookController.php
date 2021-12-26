@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use App\Models\GuestBook;
 
@@ -50,8 +52,9 @@ class GuestBookController extends Controller
 
     public function create()
     {
-        $provinces = json_decode(file_get_contents("https://d.kapanlaginetwork.com/banner/test/province.json"), true);
-        $cities = json_decode(file_get_contents('https://d.kapanlaginetwork.com/banner/test/city.json'), true);
+        app("\App\Http\Controllers\ProvinceController")->store();
+        $provinces = Province::all();
+        $cities = City::all();
         return view('guestbook.create', ['provinces' => $provinces, 'cities' => $cities]);
     }
 }

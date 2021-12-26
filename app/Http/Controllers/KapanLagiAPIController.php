@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
 class KapanLagiAPIController extends ProvinceController
@@ -12,11 +14,8 @@ class KapanLagiAPIController extends ProvinceController
         $this->Store();
 
 
-        // get data from json web
-        $json = file_get_contents('https://d.kapanlaginetwork.com/banner/test/province.json');
-
-        // decode json to array
-        $data = json_decode($json, true);
+        // return data json
+        $data = Province::all();
 
         // return data
         return response()->json($data);
@@ -24,11 +23,8 @@ class KapanLagiAPIController extends ProvinceController
 
     public function getCities()
     {
-        // get data from json web
-        $json = file_get_contents('https://d.kapanlaginetwork.com/banner/test/city.json');
-
-        // decode json to array
-        $data = json_decode($json, true);
+        $this->Store();
+        $data = City::all();
 
         // return data
         return response()->json($data);
