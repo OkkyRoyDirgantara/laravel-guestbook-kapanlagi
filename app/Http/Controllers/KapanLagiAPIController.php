@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class KapanLagiAPIController extends Controller
+class KapanLagiAPIController extends ProvinceController
 {
     public function getProvinces()
     {
+        // if data json is null execute this
+        $this->Store();
+
+
         // get data from json web
         $json = file_get_contents('https://d.kapanlaginetwork.com/banner/test/province.json');
 
