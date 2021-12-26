@@ -20,7 +20,7 @@ Route::get('/', function () {
     return redirect('guest');
 })->name('home');
 
-Route::get("/login", function () {return redirect('guest');})->name('login');
+//Route::get("/login", function () {return redirect('guest');})->name('login');
 
 Auth::routes();
 Route::middleware('auth')->group(function () {
