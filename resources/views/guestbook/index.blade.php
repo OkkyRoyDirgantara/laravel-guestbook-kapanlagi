@@ -108,7 +108,7 @@
 
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
                         </form>
-                        <a href="{{ route('guestbook.show',$guestbook->id) }}" class="btn btn-primary btn-sm">Show</a>
+{{--                        <a href="{{ route('guestbook.show',$guestbook->id) }}" class="btn btn-primary btn-sm">Show</a>--}}
                         <a href="{{ route('guestbook.edit',$guestbook->id) }}" class="btn btn-warning btn-sm">Edit</a>
                     </td>
                 </tr>
