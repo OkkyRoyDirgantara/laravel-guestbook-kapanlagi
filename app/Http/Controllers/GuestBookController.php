@@ -57,4 +57,30 @@ class GuestBookController extends Controller
         $cities = City::all();
         return view('guestbook.create', ['provinces' => $provinces, 'cities' => $cities]);
     }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'first_name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|max:255',
+        ]);
+
+        $guestbook = GuestBook::find($id);
+        $guestbook->first_name = $request->first_name;
+        $guestbook->last_name = $request->lastname;
+        $guestbook->email = $request->email;
+        $guestbook->body = $request->message;
+        $guestbook->address = $request->address;
+        $guestbook->organization = $request->organization;
+        $guestbook->city = $request->city;
+        $guestbook->province = $request->province;
+        $guestbook->save();
+
+        return redirect('/admin/guestbook')->with('success', 'Message Sent!');
+    }
+
+    public function edit($id){
+        return view('guestbook.edit', ['guestbook' => GuestBook::find($id)]);
+    }
 }

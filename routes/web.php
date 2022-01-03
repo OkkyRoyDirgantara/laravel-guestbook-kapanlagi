@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::middleware('auth')->group(function () {
-    Route::resource('admin/guestbook', GuestBookController::class)->only(['index', 'store', 'destroy', 'show', 'edit', 'create']);
+    Route::resource('admin/guestbook', GuestBookController::class)->only(['index', 'store', 'destroy', 'show', 'edit', 'create', 'update']);
 });
 
 Route::get('/home', function (){
