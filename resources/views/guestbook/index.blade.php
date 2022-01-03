@@ -102,14 +102,38 @@
                     <td>{{ $guestbook->created_at }}</td>
                     <td>{{ $guestbook->updated_at }}</td>
                     <td>
-                        <form action="{{ route('guestbook.destroy',$guestbook->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteGuestbook">
+                            Delete
+                        </button>
 
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
-                        </form>
+                        <!-- Modal -->
+                        <div class="modal fade" id="DeleteGuestbook" tabindex="-1" role="dialog" aria-labelledby="DeleteGuestbookLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="DeleteGuestbookLabel">Delete Guestbook</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure want to delete this guestbook?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <form action="{{ route('guestbook.destroy',$guestbook->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 {{--                        <a href="{{ route('guestbook.show',$guestbook->id) }}" class="btn btn-primary btn-sm">Show</a>--}}
-                        <a href="{{ route('guestbook.edit',$guestbook->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('guestbook.edit',$guestbook->id) }}" class="btn btn-warning mt-2">Edit</a>
                     </td>
                 </tr>
             @endforeach
