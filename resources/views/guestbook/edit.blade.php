@@ -10,8 +10,6 @@
     <title>Edit Guestbook</title>
 </head>
 <body>
-
-{{--Edit guestbook --}}
 <div class="container">
     <a href="{{route('guestbook.index')}}" class="btn btn-danger mt-4">X</a>
     <div class="row">
@@ -32,6 +30,13 @@
                     <label for="email">Email</label>
                     <input type="email" class="form-control" name="email" id="email" value="{{ $guestbook->email }}">
                 </div>
+
+{{--                Organization--}}
+                <div class="form-group">
+                    <label for="organization">Organization</label>
+                    <input type="text" class="form-control" name="organization" id="organization" value="{{ $guestbook->organization }}">
+                </div>
+
                 <div class="form-group">
                     <label for="message">Message</label>
                     <textarea class="form-control" name="message" id="message" rows="3">{{ $guestbook->body }}</textarea>
@@ -42,16 +47,26 @@
                 </div>
                 <div class="form-group">
                     <label for="province">Province</label>
-                    <input type="text" class="form-control" name="province" id="province" value="{{ $guestbook->province }}">
+                    <select class="form-control" id="province" name="province">
+                        <option value="{{ $guestbook->province }}">{{ $guestbook->province }}</option>
+                        @foreach($provinces as $province)
+                            <option value="{{$province['nama']}}">{{$province['nama']}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input type="text" class="form-control" name="city" id="city" value="{{ $guestbook->city }}">
+                    <select class="form-control" id="city" name="city">
+                        <option value="{{ $guestbook->city  }}">{{ $guestbook->city  }}</option>
+                        @foreach($cities as $city)
+                            <option value="{{$city['nama']}}">{{$city['nama']}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary mt-4">Submit</button>
             </form>
         </div>
     </div>
-
+</div>
 </body>
 </html>

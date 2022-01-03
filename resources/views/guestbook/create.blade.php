@@ -14,11 +14,8 @@
     <title>Create Guestbook</title>
 </head>
 <body>
-
-{{--Button To Home--}}
-<a href="{{route('guestbook.index')}}" class="btn btn-danger">X</a>
-
 <div class="container mt-5">
+    <a href="{{route('guestbook.index')}}" class="btn btn-danger">X</a>
     <div class="row">
         <div class="col-md-12">
             @if ($errors->any())

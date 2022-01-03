@@ -68,7 +68,7 @@ class GuestBookController extends Controller
 
         $guestbook = GuestBook::find($id);
         $guestbook->first_name = $request->first_name;
-        $guestbook->last_name = $request->lastname;
+        $guestbook->last_name = $request->last_name;
         $guestbook->email = $request->email;
         $guestbook->body = $request->message;
         $guestbook->address = $request->address;
@@ -81,6 +81,9 @@ class GuestBookController extends Controller
     }
 
     public function edit($id){
-        return view('guestbook.edit', ['guestbook' => GuestBook::find($id)]);
+        app("\App\Http\Controllers\ProvinceController")->store();
+        $provinces = Province::all();
+        $cities = City::all();
+        return view('guestbook.edit', ['guestbook' => GuestBook::find($id), 'provinces' => $provinces, 'cities' => $cities]);
     }
 }
