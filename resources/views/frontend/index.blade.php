@@ -82,27 +82,21 @@
     </div>
 
 {{--    List Guestbook --}}
-    <div class="row mt-5 mb-5">
-        <div class="col-md-12">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Message</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($guestbooks as $guestbook)
-                    <tr>
-                        <td>{{$guestbook->first_name. " ". $guestbook->last_name}}</td>
-                        <td>{{$guestbook->body}}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-
+    @foreach($guestbooks as $guestbook)
+        <div class="row mt-5 mb-5">
+            <div class="col-md-12">
+                <div class="card flex-row">
+                    <img src="https://icon-library.com/images/person-image-icon/person-image-icon-19.jpg" height="150px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$guestbook->first_name}} {{$guestbook->last_name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$guestbook->organization}}</h6>
+                        <p class="card-text">{{$guestbook->body}}</p>
+                        <p class="card-text"><small class="text-muted">{{$guestbook->created_at}}</small></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    @endforeach
 {{$guestbooks->links()}}
 </div>
 @endsection
