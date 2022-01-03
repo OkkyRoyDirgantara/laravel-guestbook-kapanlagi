@@ -1,4 +1,4 @@
-@extends("../master")
+@extends("../layouts.app")
 
 @section('title', 'Edit Guestbook')
 @section("content")
