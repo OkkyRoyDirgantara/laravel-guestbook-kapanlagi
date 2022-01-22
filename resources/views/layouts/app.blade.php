@@ -12,7 +12,7 @@
 
     <!-- Bootstrap CSS -->
 {{--    call folder on resources--}}
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
     <title>GuestBookAPP | @yield("title")</title>
 
@@ -91,6 +91,6 @@
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="{{ asset("js/bootstrap.bundle.min.js") }}"></script>
+    <script src="{{ asset("js/app.js") }}"></script>
 </body>
 </html>
